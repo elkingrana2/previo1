@@ -57,6 +57,39 @@
 	<div class="imgFondo">
 		<img src="http://creamostuvideo.com/wp-content/uploads/2015/03/fondo-2-2.jpg">
 	</div>
+
+	<section id="div">
+		<h1>listado de cartas</h1>
+		
+	</section>
+
+	<script type="text/javascript">
+		
+		var url ="https://carlosreneas.github.io/endpoints/noticias.json";
+		fetch(url)
+			.then(response => response.json())
+			.then(data => crearNoticia(data))
+			.catch(function(error) {
+
+			});
+
+		function crearNoticia(data){
+			console.log(data);
+
+		
+			const body = document.getElementByIdtagName("body")[0];
+			const div = document.createElement('div');
+			//console.log(data[i].fecha);
+			const titulo = document.createElement('h1');
+				titulo.textContent = "hOLA K HACe";
+			div.appendChild(titulo);
+			body.appendChild(div);
+		
+
+		}
+
+
+	</script>
 			
 
 			
@@ -84,5 +117,6 @@
 		</footer>
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </body>
 </html>
