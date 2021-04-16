@@ -12,179 +12,231 @@
 </head>
 <body>
 
-	<div class="row">
-		<div class="col-xs-12 col-sm-1">
+		<div class="row">
+			<div class="col-xs-12 col-sm-1">
 
-			<div class="navbar-header">
-				<img title="Rusia 2018" src="https://i1.wp.com/pngimage.net/wp-content/uploads/2018/06/news-vector-png-6.png?ssl=1">
+				<div class="navbar-header">
+					<img title="Rusia 2018" src="https://i1.wp.com/pngimage.net/wp-content/uploads/2018/06/news-vector-png-6.png?ssl=1">
 
-			</div>
-			
-		</div>
-
-		<div class="col-xs-12 col-sm-11">
-			<br>
-			<h1>Periódico 6B</h1>
-		</div>
-		
-	</div>
-
-	
-
-	
-
-	<div class="row">
-		<div class="col-xs-12 col-sm-9">
-
-			<nav class="navbar navbar-default">
-	<div class="container">
-	
-		<div>
-		<ul class="nav navbar-nav">
-		<li class="active"><a href="#">Inicio</a></li>
-		<li><a href="#">Salón</a></li>
-		<li><a href="#">Colegio</a></li>
-		<li><a href="#">Región</a></li>
-		<li><a href="#">Tecnología</a></li>
-		<li><a href="#">Farándula</a></li>
-		<li><a href="#">Deportes</a></li>
-		<li><a href="#">Juegos</a></li>
-		</ul>
-		</div>
-	</div>
-	</nav>
-
-	<div id="imgNoticia" class="imgFondo">
-		<!--<img src="http://creamostuvideo.com/wp-content/uploads/2015/03/fondo-2-2.jpg">-->
-	</div>
-
-	<div></div>
-
-	<section id="div" class="imgFondo">
-		
-	</section>
-
-	<script type="text/javascript">
-		
-		var url ="https://carlosreneas.github.io/endpoints/noticias.json";
-		fetch(url)
-			.then(response => response.json())
-			.then(data => crearNoticia(data))
-			.catch(function(error) {
-
-			});
-
-		function crearNoticia(data){
-			//console.log(data);
-
-			const body = document.getElementsByTagName("body")[0];
-			//const div = document.createElement('imgNoticia');
-			const div = document.createElement('div');
-
-			
-			const imgNoticia =document.createElement('img');
-			imgNoticia.src = data[0].img;
-			imgNoticia.height= 250;
-			imgNoticia.width= 1000;
-			div.appendChild(imgNoticia);
-			body.appendChild(div);
-
-			for(var i in data)
-			{
-				console.log(data[i].titulo, "- Colegio - ", data[i].fecha);
-				const noticia = document.createElement('h4');
-				noticia.textContent = data[i].titulo + " - Colegio - " + data[i].fecha;
-				div.appendChild(noticia);
-
-
-				const descripcion = document.createElement('p');
-				descripcion.textContent = data[i].descripcion;
-				const boton = document.createElement("a");
-				div.appendChild(descripcion)
-				boton.textContent="Ver más";
+				</div>
 				
-				
-				div.appendChild(boton);
-				
-
-
-				body.appendChild(div);
-
-			}
-
-			document.getElementById(boton).onclick="No se puede we"; 
-
-
-
-		}
-
-
-	</script>
-			
-
-			
-
-		</div>
-
-		<div class="col-xs-12 col-sm-3">
-
-			<div class="imglargo">
-				<img src="https://eldiariodecoahuila.com.mx/wp-content/uploads/2021/04/logo_sm.png">		
 			</div>
 
-			<section id="div">
-				
-			</section>
+			<div class="col-xs-12 col-sm-9">
+				<br>
+				<h1>Periódico 6B</h1>
+			</div>
 
-			<script type="text/javascript">
-			var url ="https://carlosreneas.github.io/endpoints/categoria_deporte.json";
-			fetch(url) 
+			<div class="col-xs-12 col-xs-2">
+				<br>
+				<br>
+				<h5>15 de abril de 2021</h5>
+				<h5>Cúcuta</h5>
+				
+			</div>
+		
+	    </div>
+	
+
+	<div id="contenedor">
+
+			<div id="izq">
+
+
+				<nav class="navbar navbar-default">
+					<div class="container">
+		
+					<div>
+						<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Inicio</a></li>
+						<li><a href="#">Salón</a></li>
+						<li><a href="#">Colegio</a></li>
+						<li><a href="#">Región</a></li>
+						<li><a href="#">Tecnología</a></li>
+						<li><a href="#">Farándula</a></li>
+						<li><a href="#">Deportes</a></li>
+						<li><a href="#">Juegos</a></li>
+						</ul>
+					</div>
+		    		</div>
+				</nav>
+
+
+		
+
+		
+
+		<section id="div" class="imgFondo">
+
+			
+		</section>
+
+		<script type="text/javascript">
+			
+			var url ="https://carlosreneas.github.io/endpoints/noticias.json";
+			fetch(url)
 				.then(response => response.json())
-				.then(data => crearDeportes(data))
+				.then(data => crearNoticia(data))
 				.catch(function(error) {
 
-			});
+				});
 
-		function crearDeportes(data)
-		{
-			const body = document.getElementsByTagName("body")[0];
-			//const div = document.createElement('imgNoticia');
-			const div = document.createElement('div');
+			function crearNoticia(data){
+				//console.log(data);
 
-			for(var i in data)
-			{
-				console.log(data[i].titulo);
+				const body = document.getElementsByTagName("section")[0];
+				//const div = document.createElement('imgNoticia');
+				const div = document.createElement('div');
 
-				const titularNoticia= document.createElement('a');
-				titularNoticia.textContent = data[i].titulo;
+				
+				const imgNoticia =document.createElement('img');
+				imgNoticia.src = data[0].img;
+				imgNoticia.height= 250;
+				imgNoticia.width= 1000;
+				div.appendChild(imgNoticia);
+				body.appendChild(div);
 
-				div.appendChild(titularNoticia);
+				for(var i in data)
+				{
+					console.log(data[i].titulo, "- Colegio - ", data[i].fecha);
+					const noticia = document.createElement('h4');
+					noticia.textContent = data[i].titulo + " - Colegio - " + data[i].fecha;
+					div.appendChild(noticia);
 
-				body.appendChild(div); 
+
+					const descripcion = document.createElement('p');
+					descripcion.textContent = data[i].descripcion;
+					const boton = document.createElement("a");
+					div.appendChild(descripcion)
+					boton.textContent="Ver más";
+					
+					
+					div.appendChild(boton);
+					
+
+
+					body.appendChild(div);
+
+				}
+
+				document.getElementById(boton).onclick="No se puede we"; 
+
+
 
 			}
 
-		}	
+
+		</script>
+
+			</div>
+
+			<div id="derecha">
+
+				<div class="imglargo">
+					<img src="https://eldiariodecoahuila.com.mx/wp-content/uploads/2021/04/logo_sm.png">		
+				</div>
+
 				
-			</script>
+				<section id="div">
+					<h4>Deportes</h4>
+					
+				</section>
+
+				<script type="text/javascript">
+				var url ="https://carlosreneas.github.io/endpoints/categoria_deporte.json";
+				fetch(url) 
+					.then(response => response.json())
+					.then(data => crearDeportes(data))
+					.catch(function(error) {
+
+				});
+
+			function crearDeportes(data)
+			{
+				const body = document.getElementsByTagName("body")[0];
+				//const div = document.createElement('imgNoticia');
+				const div = document.createElement('div');
+
+				/*
+				for(var i in data)
+				{
+					//console.log(data[i].titulo);
+
+					const titularNoticia= document.createElement('a');
+					titularNoticia.textContent = data[i].titulo;
+
+					div.appendChild(titularNoticia);
+					const br = document.createElement('br');
+					div.appendChild(br);
+					body.appendChild(div); 
+
+				}
+
+				*/
+					j=3;
+				while (j>0) 
+				{
+					const titularNoticia= document.createElement('a');
+					titularNoticia.textContent = data[j].titulo;
+
+					div.appendChild(titularNoticia);
+					const br = document.createElement('br');
+					div.appendChild(br);
+					body.appendChild(div);
+					j--; 
+				}
+
+			}
+
+			var url2 ="https://carlosreneas.github.io/endpoints/categoria_tecnologia.json";
+				fetch(url2) 
+					.then(response => response.json())
+					.then(data2 => crearTecnologia(data2))
+					.catch(function(error) {
+
+				});
+
+			function crearTecnologia(data2)
+			{
+				const body = document.getElementsByTagName("body")[0];
+				//const div = document.createElement('imgNoticia');
+				const div = document.createElement('div');
+				const h4 = document.createElement('h4');
+				h4.textContent= "Tecnología";
+				div.appendChild(h4);
+
+					j=3;
+				while (j>0) 
+				{
+					const titularNoticia= document.createElement('a');
+					titularNoticia.textContent = data2[j].titulo;
+
+					div.appendChild(titularNoticia);
+					const br = document.createElement('br');
+					div.appendChild(br);
+					body.appendChild(div);
+					j--; 
+				}
+
+			}	
+					
+				</script>
+
+				
+				
+			</div>
 
 
-			
-			
+
 		</div>
 
+			
 
+	
 
-	</div>
-
-	<!--<footer class="footer"> 
-			<div class="container">
-				<br>	
-				<p class="text-muted">2021 @ Colegio Gimnasio UFPS</p>
-			</div>
-		</footer>
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	-->
+	
 </body>
+
 </html>

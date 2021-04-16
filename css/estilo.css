@@ -13,3 +13,28 @@
 	height: 250px;
 	width: 1000px;
 }
+
+#contenedor {
+ text-align: left;
+ width: 100%;
+ margin: auto;
+}
+
+#izq{
+	width: 75%;
+	float: left;
+	background-color: #FFFFFF
+	border: #000000 1px solid;
+}
+
+#derecha{
+	width: 20%;
+	background-color: #FFFFFF;
+	float:left;
+}
+/* Para limpiar los floats */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
