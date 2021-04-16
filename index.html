@@ -54,12 +54,13 @@
 	</div>
 	</nav>
 
-	<div class="imgFondo">
-		<img src="http://creamostuvideo.com/wp-content/uploads/2015/03/fondo-2-2.jpg">
+	<div id="imgNoticia" class="imgFondo">
+		<!--<img src="http://creamostuvideo.com/wp-content/uploads/2015/03/fondo-2-2.jpg">-->
 	</div>
 
-	<section id="div">
-		<h1>Noticia</h1>
+	<div></div>
+
+	<section id="div" class="imgFondo">
 		
 	</section>
 
@@ -74,17 +75,46 @@
 			});
 
 		function crearNoticia(data){
-			console.log(data);
+			//console.log(data);
 
-		
-			const body = document.getElementByIdtagName("body")[0];
+			const body = document.getElementsByTagName("body")[0];
+			//const div = document.createElement('imgNoticia');
 			const div = document.createElement('div');
-			//console.log(data[i].fecha);
-			const titulo = document.createElement('h1');
-				titulo.textContent = "hOLA K HACe";
-			div.appendChild(titulo);
+
+			
+			const imgNoticia =document.createElement('img');
+			imgNoticia.src = data[0].img;
+			imgNoticia.height= 250;
+			imgNoticia.width= 1000;
+			div.appendChild(imgNoticia);
 			body.appendChild(div);
-		
+
+			for(var i in data)
+			{
+				console.log(data[i].titulo, "- Colegio - ", data[i].fecha);
+				const noticia = document.createElement('h4');
+				noticia.textContent = data[i].titulo + " - Colegio - " + data[i].fecha;
+				div.appendChild(noticia);
+
+
+				const descripcion = document.createElement('p');
+				descripcion.textContent = data[i].descripcion;
+				const boton = document.createElement("a");
+				div.appendChild(descripcion)
+				boton.textContent="Ver más";
+				
+				
+				div.appendChild(boton);
+				
+
+
+				body.appendChild(div);
+
+			}
+
+			document.getElementById(boton).onclick="No se puede we"; 
+
+
 
 		}
 
@@ -101,6 +131,44 @@
 			<div class="imglargo">
 				<img src="https://eldiariodecoahuila.com.mx/wp-content/uploads/2021/04/logo_sm.png">		
 			</div>
+
+			<section id="div">
+				
+			</section>
+
+			<script type="text/javascript">
+			var url ="https://carlosreneas.github.io/endpoints/categoria_deporte.json";
+			fetch(url) 
+				.then(response => response.json())
+				.then(data => crearDeportes(data))
+				.catch(function(error) {
+
+			});
+
+		function crearDeportes(data)
+		{
+			const body = document.getElementsByTagName("body")[0];
+			//const div = document.createElement('imgNoticia');
+			const div = document.createElement('div');
+
+			for(var i in data)
+			{
+				console.log(data[i].titulo);
+
+				const titularNoticia= document.createElement('a');
+				titularNoticia.textContent = data[i].titulo;
+
+				div.appendChild(titularNoticia);
+
+				body.appendChild(div); 
+
+			}
+
+		}	
+				
+			</script>
+
+
 			
 			
 		</div>
@@ -109,7 +177,7 @@
 
 	</div>
 
-	<footer class="footer"> 
+	<!--<footer class="footer"> 
 			<div class="container">
 				<br>	
 				<p class="text-muted">2021 @ Colegio Gimnasio UFPS</p>
@@ -117,6 +185,6 @@
 		</footer>
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+	-->
 </body>
 </html>
